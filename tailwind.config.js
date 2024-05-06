@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'summer': "url('./src/assets/images/summer.jpg')",
+        homeBackground: "url('./src/assets/images/summer.jpg')",
       }
     },
   },

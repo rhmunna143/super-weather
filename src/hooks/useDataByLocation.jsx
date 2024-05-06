@@ -8,14 +8,20 @@ const useLocationData = (location = "Kushtia") => {
     useEffect(() => {
         axios.get(`${api}/direct?q=${location}&limit=5&appid=${apiKey}`)
             .then((response) => {
-                setLocationData(response.data);
+                if (response.data && response.data.length > 0) {
+                    setLocationData(response.data);
+                }
             })
             .catch((error) => {
                 console.log(error);
             });
     }, [location]);
 
-    return locationData;
+    return {
+        location: locationData,
+        lat: locationData[0]?.lat,
+        lon: locationData[0]?.lon
+    };
 };
 
 export default useLocationData;
